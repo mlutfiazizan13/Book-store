@@ -17,11 +17,7 @@
                 <th scope="col">NO ISBN</th>
                 <th scope="col">Penulis</th>
                 <th scope="col">Penerbit</th>
-                <th scope="col">Tahun</th>
-                <th scope="col">Harga Pokok</th>
-                <th scope="col">Harga Jual</th>
-                <th scope="col">Diskon</th>
-                <th scope="col">Aksi</th>
+                <th scope="col">Stok</th>
             </tr>
         </thead>
         <tbody>
@@ -32,17 +28,7 @@
                 <td>{{ $bk->noisbn }}</td>
                 <td>{{ $bk->penulis }}</td>
                 <td>{{ $bk->penerbit }}</td>
-                <td>{{ $bk->tahun }}</td>
-                <td>{{ $bk->harga_pokok }}</td>
-                <td>{{ $bk->harga_jual }}</td>
-                <td>{{ $bk->diskon }}</td>
-                <td>
-                    <form action="" method="POST">
-                        <a class="btn btn-primary" href="">edit</a>
-                        @csrf
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-                </td>
+                <td>{{ $bk->stok }}</td>
 
             </tr>
 

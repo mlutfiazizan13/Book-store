@@ -1,6 +1,6 @@
 @extends('layouts.index')
 @section('sidebar')
-    @include('layouts.adminsidebar')
+    @include('layouts.managersidebar')
 @endsection
 @section('content')
 <div class="container-fluid panel panel-default">
@@ -9,7 +9,7 @@
         <h4>Laporan Semua Buku</h4>
       </div>
     </div>
-    <form action="{{ route('cariPenulis') }}" class="row" method="GET">
+    <form action="{{ route('managerCariPenulis') }}" class="row" method="GET">
 		<input type="text" class="col form-control" name="cari" placeholder="Cari penulis" value="{{ old('cari') }}">
 		<input type="submit" class="col-1 btn btn-primary" value="CARI">
 	</form>
@@ -26,7 +26,6 @@
                 <th scope="col">Harga Pokok</th>
                 <th scope="col">Harga Jual</th>
                 <th scope="col">Diskon</th>
-                <th scope="col">Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -41,13 +40,6 @@
                 <td>{{ $bk->harga_pokok }}</td>
                 <td>{{ $bk->harga_jual }}</td>
                 <td>{{ $bk->diskon }}</td>
-                <td>
-                    <form action="{{ route('cariPenulis') }}" method="GET">
-                        <a class="btn btn-primary" href="">edit</a>
-                        @csrf
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-                </td>
 
             </tr>
 

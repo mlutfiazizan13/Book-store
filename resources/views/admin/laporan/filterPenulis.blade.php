@@ -9,16 +9,24 @@
         <h4>Laporan Semua Buku</h4>
       </div>
     </div>
+    <form action="{{ route('adminCariPenulis') }}" class="row" method="GET">
+		<input type="text" class="col form-control" name="cari" placeholder="Cari penulis" value="{{ old('cari') }}">
+		<input type="submit" class="col-1 btn btn-primary" value="CARI">
+	</form>
+
     <table class="table table-bordered mt-5">
         <thead>
             <tr>
-                <th scope="col">No</th>
-                <th scope="col">NO ISBM</th>
+                <th scope="col">Kode Buku</th>
+                <th scope="col">Judul</th>
+                <th scope="col">NO ISBN</th>
                 <th scope="col">Penulis</th>
                 <th scope="col">Penerbit</th>
+                <th scope="col">Tahun</th>
+                <th scope="col">Harga Pokok</th>
                 <th scope="col">Harga Jual</th>
-                <th scope="col">Total Jumlah Beli</th>
-                <th scope="col">Total Transaksi</th>
+                <th scope="col">Diskon</th>
+                <th scope="col">Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -34,7 +42,7 @@
                 <td>{{ $bk->harga_jual }}</td>
                 <td>{{ $bk->diskon }}</td>
                 <td>
-                    <form action="" method="POST">
+                    <form action="{{ route('adminCariPenulis') }}" method="GET">
                         <a class="btn btn-primary" href="">edit</a>
                         @csrf
                         <button type="submit" class="btn btn-danger">Delete</button>

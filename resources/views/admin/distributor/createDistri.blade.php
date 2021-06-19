@@ -58,8 +58,9 @@
                 <td>{{ $dts->alamat }}</td>
                 <td>{{ $dts->telepon }}</td>
                 <td>
-                    <a class="btn btn-primary" href="inputdistributor/{{ $dts->id_distributor }}/edit">edit</a>
+
                     <form action="{{ route('destroyDistri', $dts->id_distributor) }}" method="POST">
+                        <a class="btn btn-primary" href="inputdistributor/{{ $dts->id_distributor }}/edit">edit</a>
                         @method('DELETE')
                         @csrf
                         <button type="submit" class="btn btn-danger">Delete</button>

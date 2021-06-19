@@ -88,13 +88,13 @@ class AdminController extends Controller
     public function semuaBuku(){
         $buku = Buku::all();
 
-        return view('laporan.semuaBuku', compact('buku'));
+        return view('admin.laporan.semuaBuku', compact('buku'));
     }
 
     public function filterPenulis(){
         $buku = Buku::all();
 
-        return view('laporan.filterPenulis', compact('buku'));
+        return view('admin.laporan.filterPenulis', compact('buku'));
     }
 
     public function cariPenulis(Request $request){
@@ -102,14 +102,18 @@ class AdminController extends Controller
 
         $buku = Buku::where('penulis', 'like', "%".$cari."%")->paginate(5);
 
-        return view('laporan.filterPenulis', compact('buku'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('admin.laporan.filterPenulis', compact('buku'))->with('i', (request()->input('page', 1) - 1) * 5);
 
     }
 
     public function seringTerjual(){
-        $penjualan = Penjualan::all()->orderBy('jumlah_beli', 'asc');
 
-        return view('laporan.seringTerjual', compact('penjualan'));
+        return view('admin.laporan.seringTerjual');
+    }
+
+    public function tidakTerjual(){
+
+        return view('admin.laporan.tidakTerjual');
     }
 
 }

@@ -10,8 +10,12 @@
       </div>
     </div>
 
-    <form action="{{ route('storeBuku') }}" method="POST">
-        @csrf
+    <form action="{{ route('storeBuku') }}" method="post">
+        {{ csrf_field() }}
+        <div class="form-group">
+            <label for="" class="form_label">Kode Buku</label>
+            <input type="text" class="form-control" name="id_buku" placeholder="" >
+        </div>
         <div class="form-group">
             <label for="" class="form_label">Judul Buku</label>
             <input type="text" class="form-control" name="judul" placeholder="Judul">

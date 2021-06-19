@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\KasirController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\ManagerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,10 +32,34 @@ Route::get('/admin/inputdistributor/{id_distributor}', [AdminController::class, 
 Route::get('/admin/inputbuku', [AdminController::class, 'inputBuku'])->name('inputBuku');
 Route::post('/admin/storebuku', [AdminController::class, 'storeBuku'])->name('storeBuku');
 
+//laporan
+Route::get('/admin/semuabuku', [AdminController::class, 'semuaBuku'])->name('adminSemuaBuku');
+Route::get('/admin/filterpenulis', [AdminController::class, 'filterPenulis'])->name('adminFilterPenulis');
+Route::get('/admin/filterpenulis/cari', [AdminController::class, 'cariPenulis'])->name('adminCariPenulis');
+Route::get('/admin/seringterjual', [AdminController::class, 'seringTerjual'])->name('adminSeringTerjual');
+Route::get('/admin/tidakterjual', [AdminController::class, 'tidakTerjual'])->name('adminTidakTerjual');
 
-Route::get('/admin/semuabuku', [AdminController::class, 'semuaBuku'])->name('semuaBuku');
-Route::get('admin/filterpenulis', [AdminController::class, 'filterPenulis'])->name('filterPenulis');
-Route::get('admin/filterpenulis/cari', [AdminController::class, 'cariPenulis'])->name('cariPenulis');
-Route::get('/admin/seringterjual', [AdminController::class, 'seringTerjual'])->name('seringTerjual');
+
+
+Route::get('/manager', [ManagerController::class, 'index'])->name('managerHome');
+
+Route::get('/manager/semuabuku', [ManagerController::class, 'semuaBuku'])->name('managerSemuaBuku');
+Route::get('/manager/filterpenulis', [ManagerController::class, 'filterPenulis'])->name('managerFilterPenulis');
+Route::get('/manager/filterpenulis/cari', [ManagerController::class, 'cariPenulis'])->name('managerCariPenulis');
+Route::get('/manager/seringterjual', [ManagerController::class, 'seringTerjual'])->name('managerSeringTerjual');
+Route::get('/manager/tidakterjual', [ManagerController::class, 'tidakTerjual'])->name('managerTidakTerjual');
+Route::get('/manager/profil', [ManagerController::class, 'profil'])->name('profil');
+Route::get('/manager/cetakfaktur', [ManagerController::class, 'cetakFaktur'])->name('managerCetakFaktur');
+Route::get('/manager/semuapenjualan', [ManagerController::class, 'semuaPenjualan'])->name('managerSemuaPenjualan');
+Route::get('/manager/jualpertanggal', [ManagerController::class, 'jualPertanggal'])->name('managerJualPertanggal');
+
+
+
+Route::get('/kasir', [KasirController::class, 'index'])->name('kasirHome');
+Route::get('/kasir/penjualan', [KasirController::class, 'penjualan'])->name('kasirPenjualan');
+Route::get('/kasir/cetakfaktur', [KasirController::class, 'cetakFaktur'])->name('kasirCetakFaktur');
+Route::get('/kasir/semuapenjualan', [KasirController::class, 'semuaPenjualan'])->name('kasirSemuaPenjualan');
+Route::get('/kasir/jualpertanggal', [KasirController::class, 'jualPertanggal'])->name('kasirJualPertanggal');
+
 
 
